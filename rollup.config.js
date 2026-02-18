@@ -11,8 +11,8 @@ export default [
     input: "./lib/web/app.js",
     output: {
       dir: "priv/static/assets",
-      format: 'umd',
+      format: "umd",
     },
     plugins: plugins,
-  }
+  },
 ];

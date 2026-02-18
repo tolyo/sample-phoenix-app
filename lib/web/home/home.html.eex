@@ -1,5 +1,8 @@
 <div id="home">
     <main>
         <h3>Some sample app</h3>
+            {{ 2 + 2}}
+        <div ng-get="/_users" trigger="load">
+        </div>
     </main>
 </div>

@@ -15,9 +15,8 @@ defmodule Web.Router do
   scope "/", Web do
     pipe_through :api
 
-    get "/_home", HomeController, :home
+    get "/_users", HomeController, :users
     get "/*path", HomeController, :index
-
   end
 
 end

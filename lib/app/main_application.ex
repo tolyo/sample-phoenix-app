@@ -12,10 +12,14 @@ defmodule MainApplication do
       # Start the Ecto repository
       # Start the Telemetry supervisor
       Web.Telemetry,
-      Repo,
-      {Ecto.Migrator,
-        repos: Application.fetch_env!(:app, :ecto_repos),
-        skip: skip_migrations?()},
+      {Postgrex,
+       [
+         name: :db,
+         hostname: "localhost",
+         database: "db",
+         username: "postgres",
+         password: "postgres"
+       ]},
       # Start the PubSub system
       {Phoenix.PubSub, name: PubSub},
       # {Goth, name: MainApplication.Goth, source: source},
