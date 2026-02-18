@@ -19,4 +19,8 @@ defmodule Web.HomeController do
       )
     )
   end
+
+  def test(conn, _params) do
+    conn |> json(%{greeting: "Hello from: "})
+  end
 end
