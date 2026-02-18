@@ -1,6 +1,5 @@
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
-import terser from "@rollup/plugin-terser";
 
 const plugins = [
   resolve(), // tells Rollup how to find date-fns in node_modules
@@ -15,12 +14,5 @@ export default [
       format: 'umd',
     },
     plugins: plugins,
-  },
-  {
-    input: "./lib/web/mobile/mobile.js",
-    output: {
-      dir: "priv/static/assets"
-    },
-    plugins: plugins,
-  },
+  }
 ];

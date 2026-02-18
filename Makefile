@@ -48,15 +48,16 @@ quality:
 	@make check
 	@make test
 
-tunnel:
-	ssh -p 443 -R0:127.0.0.1:4000 -o StrictHostKeyChecking=no -o ServerAliveInterval=30 9EEyfGe46Y2@a.pinggy.io
+include ./config/dev.env
+DB_DSN:="host=$(POSTGRES_HOST) user=$(POSTGRES_USER) password=$(POSTGRES_PASSWORD) dbname=$(POSTGRES_DB) port=$(POSTGRES_PORT) sslmode=disable"
+MIGRATE_OPTIONS=-allow-missing -dir="./sql"
 
-db-up:
-	@mix ecto.migrate up
+db-up: ## up down on database
+	goose -v $(MIGRATE_OPTIONS) postgres $(DB_DSN) up
 
-db-down:
-	@mix ecto.rollback --all
+db-down: ## Migrate down on database
+	goose -v $(MIGRATE_OPTIONS) postgres $(DB_DSN) reset
 
-db-rebuild: 
-	@make db-down
-	@make db-up
+db-rebuild: ## Reset the database
+	make db-down
+	make db-up
