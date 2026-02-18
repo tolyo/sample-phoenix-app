@@ -1,0 +1,29 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "typecheck": "./node_modules/.bin/tsc",
+    "lint": "./node_modules/.bin/eslint ./ --fix",
+    "format": "./node_modules/.bin/prettier ./ --write"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "latest",
+    "@rollup/plugin-node-resolve": "latest",
+    "@rollup/plugin-terser": "latest",
+    "chokidar": "^4.0.3",
+    "eslint": "^9.16.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "husky": "latest",
+    "lightningcss": "latest",
+    "lint-staged": "latest",
+    "prettier": "^3.4.2",
+    "rollup": "latest",
+    "web": "^0.0.2"
+  },
+  "dependencies": {
+    "@angular-wave/angular.ts": "latest",
+    "modern-normalize": "latest",
+    "pollen-css": "5.0.1"
+  }
+}

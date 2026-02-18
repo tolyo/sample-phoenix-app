@@ -1,0 +1,37 @@
+x-common-variables: &common-variables
+  POSTGRES_DB: db
+  POSTGRES_TEST_DB: test_db
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: postgres
+  POSTGRES_PORT: 5432
+  POSTGRES_HOST: db
+
+volumes:
+  postgres-storage:
+  
+services:
+  app:
+    container_name: app
+    build:
+      context: .
+    environment:
+      <<: *common-variables
+      MIX_ENV: dev
+    ports:
+      - 4000:4000
+    volumes:
+      - .:/app
+    stdin_open: true
+    command: ["bash", "/tmp/server_init.sh"]
+  db:
+    container_name: sample-phoenix-app-db
+    image: postgres:17.5
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres-storage:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    env_file:
+      - ./config/dev.env
+    restart: unless-stopped
+

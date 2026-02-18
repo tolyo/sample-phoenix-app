@@ -1,0 +1,9 @@
+defmodule Web.HomeController do
+  use Web, :controller
+
+  @spec index(Plug.Conn.t(), any()) :: Plug.Conn.t()
+  def index(conn, _params) do
+    conn
+    |> render("home.html")
+  end
+end

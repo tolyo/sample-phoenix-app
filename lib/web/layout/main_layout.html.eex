@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="<%= Gettext.get_locale(Web.Gettext) %>">
+    <%= render Web.LayoutView, "header_helpers.html", assigns %>
+    <body ng-app="app" ng-cloak>
+        <header>
+            <nav>
+                <a href="/">Sample app</a>
+            </nav>
+        </header>
+        <%= @inner_content %>
+    </body>
+    <script type="module" src='<%= Routes.static_path(@conn, "/assets/app.js") %>'></script>
+</html>

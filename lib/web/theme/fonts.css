@@ -1,0 +1,4 @@
+/* Define the default font */
+:root {
+  --font-family: "IBM Plex Sans", sans-serif;
+}

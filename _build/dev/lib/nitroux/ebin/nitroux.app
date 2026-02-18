@@ -1,0 +1,11 @@
+{application,nitroux,
+             [{config_mtime,1771377826},
+              {optional_applications,[]},
+              {applications,[kernel,stdlib,elixir,logger,plug]},
+              {description,"Nitrogen-like templates for your Plug applications"},
+              {modules,['Elixir.Nitroux','Elixir.Nitroux.HtmlTags',
+                        'Elixir.Nitroux.HtmlTypedTags','Elixir.Nitroux.Plug',
+                        'Elixir.Nitroux.Types.GlobalAttributes',
+                        'Elixir.Nitroux.Utils']},
+              {registered,[]},
+              {vsn,"0.4.4"}]}.
